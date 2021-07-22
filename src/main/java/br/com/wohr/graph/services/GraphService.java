@@ -4,11 +4,15 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
+import br.com.wohr.graph.domain.Data;
 import br.com.wohr.graph.domain.Graph;
 import br.com.wohr.graph.repositories.DataRepository;
 import br.com.wohr.graph.repositories.GraphRepository;
+import br.com.wohr.graph.services.exceptions.DataIntegrityException;
+import br.com.wohr.graph.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class GraphService {
@@ -21,7 +25,7 @@ public class GraphService {
 
 	public Graph findById(Integer id) {
 		Optional<Graph> obj = graphRepository.findById(id);
-		return obj.orElse(null);
+		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado! Id: " + id + ", Tipo: " + Data.class.getName()));
 	}
 
 	public List<Graph> findAll() {
@@ -39,9 +43,9 @@ public class GraphService {
 		findById(id);
 		try {
 			graphRepository.deleteById(id);
-		} catch (Exception e) {
-			e.getMessage();
-		}
+        } catch (DataIntegrityViolationException e) {
+            throw new DataIntegrityException("Não é possível excluir um graph que contenha data");
+        }
 	}
 
 }
