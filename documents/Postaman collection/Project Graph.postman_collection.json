@@ -1,0 +1,250 @@
+{
+	"info": {
+		"_postman_id": "9f1b610e-e217-4dd7-b0e4-3dbc22719149",
+		"name": "Project Graph",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Graph",
+			"item": [
+				{
+					"name": "Delete",
+					"item": [
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/graph/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"graph",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Insert",
+					"item": [
+						{
+							"name": "Insert",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"data\":[\r\n    { \r\n      \"source\": \"A\", \"target\": \"B\", \"distance\":6\r\n    },\r\n    { \r\n      \"source\": \"A\", \"target\": \"E\", \"distance\":4\r\n    },\r\n    { \r\n      \"source\": \"B\", \"target\": \"A\", \"distance\":6\r\n    },\r\n    { \r\n      \"source\": \"B\", \"target\": \"C\", \"distance\":2\r\n    },\r\n    { \r\n      \"source\": \"B\", \"target\": \"D\", \"distance\":4\r\n    },\r\n    { \r\n      \"source\": \"C\", \"target\": \"B\", \"distance\":3\r\n    },\r\n    { \r\n      \"source\": \"C\", \"target\": \"D\", \"distance\":1\r\n    },\r\n    { \r\n      \"source\": \"C\", \"target\": \"E\", \"distance\":7\r\n    },\r\n    { \r\n      \"source\": \"E\",  \"target\": \"B\", \"distance\":5\r\n    },\r\n    { \r\n      \"source\": \"E\", \"target\": \"D\", \"distance\":7\r\n    }\r\n  ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/graph",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"graph"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Find",
+					"item": [
+						{
+							"name": "Find",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/graph/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"graph",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find All",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/graph",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"graph"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Data",
+			"item": [
+				{
+					"name": "Insert",
+					"item": [
+						{
+							"name": "#Insert is not implemented",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \r\n    \"source\": \"A\", \r\n    \"target\": \"B\", \r\n    \"distance\":6,\r\n        \"graph\": {\r\n            \"id\": 3\r\n        }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "#Insert is not implemented",
+									"hash": "Insert is not implemented"
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Find",
+					"item": [
+						{
+							"name": "Find",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/data/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"data",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find All",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/data",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"data"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"item": [
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/data/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"data",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"item": [
+						{
+							"name": "Update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \r\n    \"source\": \"B\", \r\n    \"target\": \"A\", \r\n    \"distance\": 7\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/data/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"data",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
